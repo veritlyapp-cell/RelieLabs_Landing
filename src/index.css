@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2C80B9;
+  --color-accent: #85C441;
+  --color-bg-dark: #0A0A0A;
+  --color-bg-deep: #050505;
+  --color-text-light: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --font-main: 'Outfit', 'Inter', system-ui, sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-[#0A0A0A] text-[#F8FAFC] font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#2C80B9] to-[#85C441] bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#2C80B9] to-[#85C441] text-white px-8 py-4 rounded-full font-bold uppercase tracking-wider shadow-lg hover:translate-y-[-2px] hover:shadow-[#85C441]/20 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply border border-white/10 hover:bg-white/5 text-white/70 px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all duration-300;
+  }
+}
