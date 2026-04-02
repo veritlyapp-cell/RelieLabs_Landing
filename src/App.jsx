@@ -3,16 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Cpu, Filter, Users, Globe, ArrowRight, Star, Quote } from 'lucide-react';
 
 const Logo = () => (
-    <div className="flex items-center gap-2">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#2C80B9] to-[#85C441] flex items-center justify-center">
-            <span className="text-white font-black text-xl">R</span>
-        </div>
+    <div className="flex items-center gap-4">
+        <img 
+            src="https://media.licdn.com/dms/image/v2/D4E0BAQE8a5R367WpBg/company-logo_200_200/company-logo_200_200/0/1715873727407/relie_labs_logo?e=1751241600&v=beta&t=S9tXFvNia2-nUnrT9w7Lp6m8f3o-Hog_R_C4o_63jYc" 
+            alt="Relié Labs" 
+            className="w-12 h-12 object-contain rounded-xl bg-white/5 p-1"
+        />
         <span className="text-2xl font-black tracking-tighter text-white">RELIÉ <span className="text-[#85C441]">LABS</span></span>
     </div>
 );
 
 const Navbar = () => (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center glass border-b border-white/5">
+    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center glass border-b border-white/5">
         <Logo />
         <div className="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-slate-400">
             <a href="#liah" className="hover:text-white transition-colors">Liah</a>
@@ -24,14 +26,30 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-black via-slate-950 to-black pt-32">
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-b from-black via-[#050505] to-black pt-32">
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="mb-12"
+        >
+            <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2C80B9] to-[#85C441] blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity" />
+                <img 
+                    src="https://media.licdn.com/dms/image/v2/D4E0BAQE8a5R367WpBg/company-logo_200_200/company-logo_200_200/0/1715873727407/relie_labs_logo?e=1751241600&v=beta&t=S9tXFvNia2-nUnrT9w7Lp6m8f3o-Hog_R_C4o_63jYc" 
+                    alt="Relié Labs" 
+                    className="w-40 h-40 md:w-56 md:h-56 object-contain relative z-10 mx-auto pointer-events-none"
+                />
+            </div>
+        </motion.div>
+        
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-4xl px-4"
         >
-            <span className="text-[#85C441] font-bold tracking-[0.3em] uppercase mb-4 block text-sm">Innovation Lab in HR Tech</span>
+            <span className="text-[#85C441] font-bold tracking-[0.3em] uppercase mb-4 block text-sm">Laboratorio de Innovación HR Tech</span>
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 bg-gradient-to-r from-white via-white to-slate-500 bg-clip-text text-transparent leading-[0.9]">
                 Reinventando el <br/>
                 <span className="text-gradient">Ciclo del Talento</span> con <span className="text-white">IA</span>
@@ -45,50 +63,36 @@ const Hero = () => (
                 </button>
                 <div className="flex items-center gap-4 px-6 py-4 glass rounded-full text-slate-300 font-bold border-white/10">
                     <div className="flex -space-x-3">
-                        {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800" />)}
+                        {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden">
+                             <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" className="w-full h-full object-cover" />
+                        </div>)}
                     </div>
                     <span>+5k Usuarios Activos</span>
                 </div>
             </div>
         </motion.div>
-        
-        {/* Animated Flow Grid Placeholder */}
-        <div className="mt-20 w-full max-w-6xl h-64 relative opacity-40">
-            <div className="absolute inset-0 bg-[#2C80B9] blur-[120px] opacity-20" />
-            <div className="absolute inset-0 grid grid-cols-12 grid-rows-4 gap-4 pointer-events-none">
-                {Array.from({length: 48}).map((_, i) => (
-                    <motion.div 
-                        key={i} 
-                        initial={{ opacity: 0.1 }}
-                        animate={{ opacity: [0.1, 0.4, 0.1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: Math.random() * 2 }}
-                        className="border border-white/5 rounded-sm"
-                    />
-                ))}
-            </div>
-        </div>
     </section>
 );
 
-const ProductCard = ({ id, title, subtitle, desc, features, color, icon: Icon, tag }) => (
+const ProductCard = ({ id, title, subtitle, desc, features, color, logo, tag }) => (
     <motion.div 
         id={id}
         whileHover={{ y: -10 }}
         className="glass p-10 rounded-[35px] border-white/5 relative overflow-hidden group h-full flex flex-col"
     >
-        <div className={`absolute top-0 right-0 w-40 h-40 blur-[80px] opacity-20 -mr-20 -mt-20 transition-colors bg-[${color}]`} style={{ backgroundColor: color }} />
+        <div className={`absolute top-0 right-0 w-40 h-40 blur-[80px] opacity-10 -mr-20 -mt-20 transition-colors pointer-events-none`} style={{ backgroundColor: color }} />
         
-        <div className="mb-8">
-            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6`} style={{ background: `${color}20` }}>
-                <Icon size={30} style={{ color }} />
+        <div className="mb-8 relative z-10">
+            <div className="h-16 mb-8 flex items-center">
+                <img src={logo} alt={title} className="h-full object-contain filter brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity" />
             </div>
-            {tag && <span className="bg-white/10 text-xs px-3 py-1 rounded-full text-white font-bold tracking-widest uppercase mb-4 inline-block">{tag}</span>}
+            {tag && <span className="bg-[#85C441] text-black text-[10px] px-3 py-1 rounded-full font-black tracking-widest uppercase mb-4 inline-block">{tag}</span>}
             <h3 className="text-3xl font-black mb-1">{title}</h3>
             <span className="text-slate-500 font-bold text-sm tracking-widest uppercase block mb-6">{subtitle}</span>
             <p className="text-slate-400 font-medium text-base mb-8">{desc}</p>
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto relative z-10">
             <div className="grid grid-cols-1 gap-4 mb-10">
                 {features.map((f, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm text-slate-300 font-bold">
@@ -98,7 +102,7 @@ const ProductCard = ({ id, title, subtitle, desc, features, color, icon: Icon, t
                 ))}
             </div>
             <button className="flex items-center gap-2 font-black text-sm uppercase tracking-widest hover:gap-4 transition-all" style={{ color }}>
-                Ver más <ArrowRight size={16} />
+                Explorar Solución <ArrowRight size={16} />
             </button>
         </div>
     </motion.div>
@@ -116,27 +120,27 @@ const Triptych = () => (
                 <ProductCard 
                     id="liah"
                     title="LIAH"
-                    subtitle="The Engine"
+                    subtitle="Proprietary Engine"
                     color="#85C441"
-                    icon={Cpu}
+                    logo="https://getliah.com/logos/liah-logo.png"
                     desc="La potencia de la automatización masiva. Diseñado para retail y consumo masivo."
                     features={["Análisis CUL/DNI Automático", "Automatización End-to-End", "Eficiencia de Volumen"]}
                 />
                 <ProductCard 
                     id="veritly"
                     title="VERITLY"
-                    subtitle="The Filter"
+                    subtitle="Analytical Filter"
                     color="#2C80B9"
-                    icon={Filter}
+                    logo="https://www.veritlyapp.com/assets/assets/images/veritly3.2b7f2755a0106eca5a46e6d633803060.png"
                     desc="Precisión analítica en selección. El match perfecto basado en data real y objetiva."
                     features={["Dashboard de Reclutamiento", "Algoritmos de Match", "Comparación Predictiva"]}
                 />
                 <ProductCard 
                     id="racso"
                     title="RACSO"
-                    subtitle="The Guide"
-                    color="#F8FAFC"
-                    icon={Users}
+                    subtitle="Career Guide"
+                    color="#FFFFFF"
+                    logo="https://racso.app/assets/logo-DonshKO3.png"
                     tag="BETA"
                     desc="Tu coach personal de carrera. El puente humano potenciado por inteligencia artificial."
                     features={["Coach IA 24/7", "Entrenamiento de Entrevistas", "Optimización de CV"]}
