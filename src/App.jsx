@@ -74,7 +74,7 @@ const Hero = () => (
     </section>
 );
 
-const ProductCard = ({ id, title, subtitle, desc, features, color, logo, tag }) => (
+const ProductCard = ({ id, title, subtitle, desc, features, color, logo, tag, link }) => (
     <motion.div 
         id={id}
         whileHover={{ y: -10 }}
@@ -101,9 +101,15 @@ const ProductCard = ({ id, title, subtitle, desc, features, color, logo, tag }) 
                     </div>
                 ))}
             </div>
-            <button className="flex items-center gap-2 font-black text-sm uppercase tracking-widest hover:gap-4 transition-all" style={{ color }}>
+            <a 
+                href={link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 font-black text-sm uppercase tracking-widest hover:gap-4 transition-all" 
+                style={{ color }}
+            >
                 Explorar Solución <ArrowRight size={16} />
-            </button>
+            </a>
         </div>
     </motion.div>
 );
@@ -123,6 +129,7 @@ const Triptych = () => (
                     subtitle="Proprietary Engine"
                     color="#85C441"
                     logo="/logos/liah.png"
+                    link="https://getliah.com"
                     desc="La potencia de la automatización masiva. Diseñado para retail y consumo masivo."
                     features={["Análisis CUL/DNI Automático", "Automatización End-to-End", "Eficiencia de Volumen"]}
                 />
@@ -132,6 +139,7 @@ const Triptych = () => (
                     subtitle="Analytical Filter"
                     color="#2C80B9"
                     logo="/logos/veritly.png"
+                    link="https://veritlyapp.com"
                     desc="Precisión analítica en selección. El match perfecto basado en data real y objetiva."
                     features={["Dashboard de Reclutamiento", "Algoritmos de Match", "Comparación Predictiva"]}
                 />
@@ -141,6 +149,7 @@ const Triptych = () => (
                     subtitle="Career Guide"
                     color="#FFFFFF"
                     logo="/logos/racso.png"
+                    link="https://racso.app"
                     tag="BETA"
                     desc="Tu coach personal de carrera. El puente humano potenciado por inteligencia artificial."
                     features={["Coach IA 24/7", "Entrenamiento de Entrevistas", "Optimización de CV"]}
