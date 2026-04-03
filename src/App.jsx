@@ -83,7 +83,7 @@ const ProductCard = ({ id, title, subtitle, desc, features, color, logo, tag, li
         <div className={`absolute top-0 right-0 w-40 h-40 blur-[80px] opacity-10 -mr-20 -mt-20 transition-colors pointer-events-none`} style={{ backgroundColor: color }} />
         
         <div className="mb-8 relative z-10">
-            <div className="h-16 mb-8 flex items-center">
+            <div className="h-24 mb-8 flex items-center">
                 <img src={logo} alt={title} className="h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
             </div>
             {tag && <span className="bg-[#85C441] text-black text-[10px] px-3 py-1 rounded-full font-black tracking-widest uppercase mb-4 inline-block">{tag}</span>}
