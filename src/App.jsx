@@ -5,7 +5,7 @@ import { ChevronRight, Cpu, Filter, Users, Globe, ArrowRight, Star, Quote } from
 const Logo = () => (
     <div className="flex items-center gap-4">
         <img 
-            src="https://media.licdn.com/dms/image/v2/D4E0BAQE8a5R367WpBg/company-logo_200_200/company-logo_200_200/0/1715873727407/relie_labs_logo?e=1751241600&v=beta&t=S9tXFvNia2-nUnrT9w7Lp6m8f3o-Hog_R_C4o_63jYc" 
+            src="/logos/relie.png" 
             alt="Relié Labs" 
             className="w-12 h-12 object-contain rounded-xl bg-white/5 p-1"
         />
@@ -36,7 +36,7 @@ const Hero = () => (
             <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2C80B9] to-[#85C441] blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity" />
                 <img 
-                    src="https://media.licdn.com/dms/image/v2/D4E0BAQE8a5R367WpBg/company-logo_200_200/company-logo_200_200/0/1715873727407/relie_labs_logo?e=1751241600&v=beta&t=S9tXFvNia2-nUnrT9w7Lp6m8f3o-Hog_R_C4o_63jYc" 
+                    src="/logos/relie.png" 
                     alt="Relié Labs" 
                     className="w-40 h-40 md:w-56 md:h-56 object-contain relative z-10 mx-auto pointer-events-none"
                 />
@@ -122,7 +122,7 @@ const Triptych = () => (
                     title="LIAH"
                     subtitle="Proprietary Engine"
                     color="#85C441"
-                    logo="https://getliah.com/logos/liah-logo.png"
+                    logo="/logos/liah.png"
                     desc="La potencia de la automatización masiva. Diseñado para retail y consumo masivo."
                     features={["Análisis CUL/DNI Automático", "Automatización End-to-End", "Eficiencia de Volumen"]}
                 />
@@ -131,7 +131,7 @@ const Triptych = () => (
                     title="VERITLY"
                     subtitle="Analytical Filter"
                     color="#2C80B9"
-                    logo="https://www.veritlyapp.com/assets/assets/images/veritly3.2b7f2755a0106eca5a46e6d633803060.png"
+                    logo="/logos/veritly.png"
                     desc="Precisión analítica en selección. El match perfecto basado en data real y objetiva."
                     features={["Dashboard de Reclutamiento", "Algoritmos de Match", "Comparación Predictiva"]}
                 />
@@ -140,7 +140,7 @@ const Triptych = () => (
                     title="RACSO"
                     subtitle="Career Guide"
                     color="#FFFFFF"
-                    logo="https://racso.app/assets/logo-DonshKO3.png"
+                    logo="/logos/racso.png"
                     tag="BETA"
                     desc="Tu coach personal de carrera. El puente humano potenciado por inteligencia artificial."
                     features={["Coach IA 24/7", "Entrenamiento de Entrevistas", "Optimización de CV"]}
