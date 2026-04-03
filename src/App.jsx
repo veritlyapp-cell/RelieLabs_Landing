@@ -148,7 +148,7 @@ const Triptych = () => (
                     title="RACSO"
                     subtitle="Career Guide"
                     color="#FFFFFF"
-                    logo="/logos/racso.png"
+                    logo="/logos/racso.png?v=2"
                     link="https://racso.app"
                     tag="BETA"
                     desc="Tu coach personal de carrera. El puente humano potenciado por inteligencia artificial."
